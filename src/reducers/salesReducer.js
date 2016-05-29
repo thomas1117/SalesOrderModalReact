@@ -4,18 +4,25 @@ let userInitialState = {
 
 export default function(state = userInitialState, action) {
     switch(action.type) {
+        case 'OPEN_ORDER':
         
+	        var newState = {...state};
+
+	        newState.itemList = [{}];
+
+        	return newState;
+
         case 'ADD_ITEM':
 
-        var newState = {...state};
+	        var newState = {...state};
 
-        newState.itemList.push({});
+	        newState.itemList.push({});
 
-        return newState
+        	return newState
 
         default:
 
-        return state;
+        	return state;
 
 	}
 }
