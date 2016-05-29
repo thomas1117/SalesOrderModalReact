@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
-
+import SalesOrderModal from './SalesOrderModal/SalesOrderModal.jsx'
 export default class App extends Component {
-  render() {
+	constructor(...props) {
+		super(props);
+
+		this.state = {
+			salesOrderDisplay:false
+		}
+	}
+	showSalesOrderModal = () => {
+		this.setState({
+			salesOrderDisplay:true
+		})
+	}
+	hideSalesOrderModal = () => {
+		this.setState({
+			salesOrderDisplay:false
+		})
+	}
+  	render() {
     return (
-      <div>React simple starter</div>
+    	<div>
+    	<button onClick={this.showSalesOrderModal}>New Sales Order</button>
+    	<SalesOrderModal show={this.state.salesOrderDisplay} hideSalesOrderModal={this.hideSalesOrderModal}/>
+    	</div>
     );
   }
 }

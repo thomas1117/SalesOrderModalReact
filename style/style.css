@@ -1,0 +1,9 @@
+ul {
+	padding:0;
+}
+.table li {
+	list-style: none;
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+}
