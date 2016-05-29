@@ -1,5 +1,5 @@
 let userInitialState = {
-	itemList:[]
+	itemList:[{}]
 }
 
 export default function(state = userInitialState, action) {
@@ -7,11 +7,11 @@ export default function(state = userInitialState, action) {
         
         case 'ADD_ITEM':
 
-        var newStateAdd = state;
+        var newState = {...state};
 
-        newStateAdd.itemList.push(action.newItem);
+        newState.itemList.push({});
 
-        return newStateAdd;
+        return newState
 
         default:
 

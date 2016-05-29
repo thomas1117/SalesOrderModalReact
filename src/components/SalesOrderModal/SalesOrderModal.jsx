@@ -11,20 +11,23 @@ class SalesOrderModal extends React.Component {
 	constructor(...props){
 		super(props);
 
-		this.state = {
-			itemList:[{}]
-		}
+	}
+	componentWillReceiveProps = () => {
+		
 	}
 	hideModal = () => {
 		this.props.hideSalesOrderModal()
 	}
 
 	renderItemList = () => {
-		
 			
-			return <LineItem/>
+			return this.props.salesReducer.itemList.map(function(){
+				return <LineItem/>
+			})
+			
 		
 	}
+
 	render(){
 		return(<Modal bsSize='large' show={this.props.show}>
 				
@@ -53,7 +56,7 @@ class SalesOrderModal extends React.Component {
 					       		{this.renderItemList()}
 					        </div>
 
-					        <a onClick={() => {actionCreators.addItem({})}}>Add Item</a>
+					        <a onClick={() => {actionCreators.addItem()}}>Add Item</a>
 						</div>
 					</div>
 				</Modal.Body>
