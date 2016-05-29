@@ -1,10 +1,29 @@
 import React, {Component} from 'react';
 import {Modal} from 'react-bootstrap';
 import LineItem from './LineItem.jsx';
+import store from '../../store';
+import * as actionCreators from '../../actions/salesActions';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-export default class SalesOrderModal extends React.Component {
+
+class SalesOrderModal extends React.Component {
+	constructor(...props){
+		super(props);
+
+		this.state = {
+			itemList:[{}]
+		}
+	}
 	hideModal = () => {
 		this.props.hideSalesOrderModal()
+	}
+
+	renderItemList = () => {
+		
+			
+			return <LineItem/>
+		
 	}
 	render(){
 		return(<Modal bsSize='large' show={this.props.show}>
@@ -31,10 +50,10 @@ export default class SalesOrderModal extends React.Component {
 					        </div>
 
 					        <div id="itemList">
-					       		<LineItem/>
+					       		{this.renderItemList()}
 					        </div>
 
-					        <a></a>
+					        <a onClick={() => {actionCreators.addItem({})}}>Add Item</a>
 						</div>
 					</div>
 				</Modal.Body>
@@ -45,3 +64,14 @@ export default class SalesOrderModal extends React.Component {
 			</Modal>)
 	}
 }
+
+function mapStateToProps(state) {
+	
+  return { salesReducer: state.salesReducer }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SalesOrderModal)
