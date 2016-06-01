@@ -1,33 +1,46 @@
 let userInitialState = {
 	itemList:[],
-}
-
-let identifier = 0;
-
-let idGen = () => {
-   return identifier++;
+    total:0,
+    salesTax:0,
+    additionalDiscount:0
 }
 
 
-const item = (state,action) => {
-    switch(action.type){
-        case 'DELETE_ITEM':
-        
-            return state.itemList.filter(function(item){
-                if(action.id!==item.id) {
-                    return true;
+const item = (state={},action) => {
+    switch(action.type) {
+        case 'UPDATE_ITEM':
+            let {item_number,description,price,quantity_ordered,quantity_on_hand,quantity_delivered} = action.payload.data;
+            if(state.id===action.payload.id) {
+                return {
+                    id:action.payload.id,
+                    item_number,
+                    description,
+                    price,
+                    quantity_ordered,
+                    quantity_on_hand,
+                    quantity_delivered,
                 }
-            })
+            }
+            return state;
     }
 }
 
+const reduced = (data) => {
+    var total = 0;
+
+    for(var i=0;i<data.length;i++){
+        total += Number(data[i].price||0) * Number(data[i].quantity_ordered||0)
+    }
+
+    return total;
+}
 export default function(state = userInitialState, action) {
     switch(action.type) {
         case 'OPEN_ORDER':
             
             return {
                 ...state,
-                itemList: [{id:idGen()}
+                itemList: [{id:Math.random()}
                 ],
                 
             }
@@ -39,33 +52,41 @@ export default function(state = userInitialState, action) {
                 ...state,
                 itemList: [
                     ...state.itemList,
-                    {id:idGen()}
+                    {id:Math.random()}
                 ]
             }
            
 
             
-
-        case 'DELETE_ITEM':
-            var test = state.itemList.filter(item=>{
-                if(item.id!==action.id){
-                    console.log(item)
-                    return true;
-                }
-            })
+        case 'UPDATE_ITEM': 
+            var itemList = state.itemList.map(data => item(data,action))
+            
             return {
                 ...state,
-                itemList: test
+                itemList:itemList,
+                total: reduced(itemList)
             }
-            
-            
-            
 
-            // console.log('at id ',action.id)
-            // return {
-            //     ...state,
-            //     itemList: state.itemList.filter(item => action.id !== item.id)
-            // }
+        case 'DELETE_ITEM':
+            
+          
+
+            return {
+                ...state,
+                itemList: state.itemList.filter(item => item.id!==action.id)
+            }
+
+        case 'UPDATE_SALES_TAX':
+            return {
+                ...state,
+                salesTax:action.payload
+        }
+
+        case 'UPDATE_ADD_DIS':
+            return {
+                ...state,
+                additionalDiscount:action.payload
+            }
 
         default:
 

@@ -21,9 +21,7 @@ export class Suggest extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSuggestionsUpdateRequested = this.onSuggestionsUpdateRequested.bind(this);
   }
-  componentWillMount = () => {
 
- }
  getSuggestionValue = (suggestion) => {
  	this.props.getFields(suggestion);
 
@@ -58,7 +56,7 @@ export class Suggest extends React.Component {
   	
     const { value, suggestions } = this.state;
     const inputProps = {
-      placeholder: 'Type a programming language',
+      placeholder: 'Item #',
       value,
       onChange: this.onChange
     };

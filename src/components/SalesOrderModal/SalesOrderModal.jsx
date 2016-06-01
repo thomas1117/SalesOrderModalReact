@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Modal} from 'react-bootstrap';
 import LineItem from './LineItem.jsx';
+import TFD from './TFD.jsx';
 import store from '../../store';
 import * as actionCreators from '../../actions/salesActions';
 import {addItem} from '../../actions/salesActions';
@@ -19,8 +20,18 @@ class SalesOrderModal extends React.Component {
 	}
 
 	renderItemList = () => {
-		
-		return store.getState().salesReducer.itemList.map((item) => <LineItem id={item.id}/>);
+				
+		return this.props.list.map((item) => 
+			<LineItem 
+				id={item.id}
+				itemNumber={item.item_number}
+				description={item.description}
+				price={item.price}
+				quantityDelivered={item.quantity_delivered}
+				quantityOnHand={item.quantity_on_hand}
+				quantityOrdered={item.quantity_ordered}
+				/>
+		)
 	}
 
 	render(){
@@ -52,8 +63,11 @@ class SalesOrderModal extends React.Component {
 					        </div>
 
 					        <a onClick={() => {addItem()}}>Add Item</a>
+
 						</div>
+						<TFD total={this.props.total} salesTax={this.props.salesTax} addDis={this.props.addDis}/>
 					</div>
+
 				</Modal.Body>
 				
 				<Modal.Footer>
@@ -64,8 +78,12 @@ class SalesOrderModal extends React.Component {
 }
 
 function mapStateToProps(state) {
-	console.log('the state ',state)
-  return { list: state.salesReducer.itemList }
+	
+  return { list: state.salesReducer.itemList,
+  			total:state.salesReducer.total,
+  			salesTax:state.salesReducer.salesTax,
+  			addDis:state.salesReducer.additionalDiscount
+  		}
 }
 
 function mapDispatchToProps(dispatch) {

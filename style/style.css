@@ -5,7 +5,9 @@
 .line-item-contain {
 	margin-bottom: 15px;
 }
-
+.text-right {
+	text-align: right;
+}
 .delete-item {
 	position: absolute;
 	right:20px;
