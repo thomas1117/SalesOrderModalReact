@@ -27,8 +27,14 @@ export default class App extends Component {
   	render() {
     return (
     	<div>
-    	<button onClick={this.showSalesOrderModal}>New Sales Order</button>
-    	<SalesOrderModal show={this.state.salesOrderDisplay} hideSalesOrderModal={this.hideSalesOrderModal}/>
+
+	    	<button className='btn btn-primary' onClick={this.showSalesOrderModal}>New Sales Order</button>
+
+	    	<SalesOrderModal 
+	    	show={this.state.salesOrderDisplay} 
+	    	hideSalesOrderModal={this.hideSalesOrderModal}
+	    	/>
+
     	</div>
     );
   }
