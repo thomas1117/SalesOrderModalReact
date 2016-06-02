@@ -3,7 +3,7 @@ import * as actionCreators from '../../actions/salesActions';
 import store from '../../store';
 import {deleteItem,updateItem} from '../../actions/salesActions';
 import {Suggest} from './SelectInput.jsx';
-
+import {DescriptionInput} from './DescriptionInput.jsx';
 
 
 export default class LineItem extends React.Component {
@@ -47,10 +47,10 @@ export default class LineItem extends React.Component {
 		            	<Suggest getFields={this.getFields} handleFields={this.handleFields}/>
 		            </div>
 		            <div className='col-lg-4 no-gutter'>
-		            	<input 
-		            		
-		            		value={description} 
-		            		className='description form-control line-item-input'/>
+		            	
+		            	<DescriptionInput 
+							getFields={this.getFields} 
+							handleFields={this.handleFields}/>
 		            </div>
 		            <div className='col-lg-1 no-gutter'>
 		            	<input 

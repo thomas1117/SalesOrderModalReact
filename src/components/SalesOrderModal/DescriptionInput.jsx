@@ -3,10 +3,10 @@ import React,{Component} from 'react';
 import Autosuggest from 'react-autosuggest';
 import {list} from '../../../utils/resources';
 
-export class Suggest extends React.Component {
+export class DescriptionInput extends React.Component {
   constructor() {
     super();
- 	  var that = this;
+ 	var that = this;
     this.state = {
       value: '',
       suggestions: that.getSuggestions('')
@@ -19,18 +19,25 @@ export class Suggest extends React.Component {
  getSuggestionValue = (suggestion) => {
  	this.props.getFields(suggestion);
 
-   return suggestion.item_number;                 
+   return suggestion.description;                 
  }
   
  renderSuggestion(suggestion) {
    return (
-     <span>{suggestion.item_number}</span>
+     <span>{suggestion.description}</span>
    );
  }
  getSuggestions(value) {
-   const inputValue = value.trim();
+
+   const inputValue = value.trim().toLowerCase();
    const inputLength = inputValue.length;
-   return inputLength === 0 ? [] : list.filter(function(items){return items.item_number.slice(0,inputLength)=== inputValue})
+
+   return inputLength === 0 ? [] : list.filter(
+   		function(items){
+   		
+   			return items.description.slice(0,inputLength).toLowerCase()=== inputValue
+   		}
+   	);
   
  }
   onChange(event, { newValue }) {
@@ -50,7 +57,7 @@ export class Suggest extends React.Component {
   	
     const { value, suggestions } = this.state;
     const inputProps = {
-      placeholder: 'Item #',
+      placeholder: 'description',
       value,
       onChange: this.onChange
     };
