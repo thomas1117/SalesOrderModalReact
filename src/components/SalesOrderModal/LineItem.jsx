@@ -23,7 +23,10 @@ export default class LineItem extends React.Component {
 
 		this.setState(obj)
 
-		updateItem({data:obj,id:this.props.id})
+		updateItem({data:obj,id:this.props.id});
+
+		this.refs.numId.setValueState(obj.item_number);
+		this.refs.description.setValueState(obj.description)
 	}
 	handleFields = (obj) => {
 		let nextState = {...this.state};
@@ -44,11 +47,12 @@ export default class LineItem extends React.Component {
 			<div className='col-lg-12 no-gutter line-item-contain'>
 				<div>	        
 		            <div className='col-lg-2 no-gutter'>
-		            	<Suggest getFields={this.getFields} handleFields={this.handleFields}/>
+		            	<Suggest ref='numId' getFields={this.getFields} handleFields={this.handleFields}/>
 		            </div>
 		            <div className='col-lg-4 no-gutter'>
 		            	
-		            	<DescriptionInput 
+		            	<DescriptionInput
+		            		ref='description' 
 							getFields={this.getFields} 
 							handleFields={this.handleFields}/>
 		            </div>
@@ -78,7 +82,7 @@ export default class LineItem extends React.Component {
 		            	onChange={(e) => this.handleFields({kind:'quantity_delivered',value:e.target.value})} 
 		            	className='quantity-delivered form-control line-item-input'/>
 		            </div>
-		            <div className='total col-lg-2 no-gutter'>{(Number(quantity_ordered)*Number(price)).toFixed(2)}</div>
+		            <div className='total col-lg-2 no-gutter'>${(Number(quantity_ordered)*Number(price)).toFixed(2)}</div>
 
 		            <span 
 		            	className='delete-item' 

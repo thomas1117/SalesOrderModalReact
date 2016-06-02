@@ -20,9 +20,10 @@ class SalesOrderModal extends React.Component {
 	}
 
 	renderItemList = () => {
-				
+
 		return this.props.list.map((item) => 
 			<LineItem 
+				key={item.id}
 				id={item.id}
 				itemNumber={item.item_number}
 				description={item.description}
@@ -35,7 +36,8 @@ class SalesOrderModal extends React.Component {
 	}
 
 	render(){
-		return(<Modal bsSize='large' show={this.props.show}>
+		return(
+			<Modal bsSize='large' show={this.props.show}>
 				
 				<Modal.Header 
 					style={{backgroundColor:'#F7F7F7', border:'solid 1px #AFD3D7'}}>

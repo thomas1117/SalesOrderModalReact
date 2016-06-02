@@ -21,6 +21,12 @@ export class DescriptionInput extends React.Component {
 
    return suggestion.description;                 
  }
+
+ setValueState = (value) => {
+
+  this.setState({value});
+
+ }
   
  renderSuggestion(suggestion) {
    return (

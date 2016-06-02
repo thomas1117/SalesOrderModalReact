@@ -5,6 +5,16 @@
 .line-item-contain {
 	margin-bottom: 15px;
 }
+.tfd-contain {
+	margin-bottom: 20px;
+}
+
+.sales-tax {
+	width:30%;
+}
+.add-discount {
+	width:30%;
+}
 .text-right {
 	text-align: right;
 }
@@ -14,7 +24,8 @@
 	width:40px;
 	height:40px;
 	border-radius:50%;
-	background: red;
+	background: #f7f7f7;
+	text-align: center;
 }
 /*.line-item-input {
 	width:52%;

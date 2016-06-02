@@ -21,6 +21,12 @@ export class Suggest extends React.Component {
 
    return suggestion.item_number;                 
  }
+
+ setValueState = (value) => {
+
+  this.setState({value});
+
+ }
   
  renderSuggestion(suggestion) {
    return (

@@ -68,8 +68,6 @@ export default function(state = userInitialState, action) {
             }
 
         case 'DELETE_ITEM':
-            
-          
 
             return {
                 ...state,
