@@ -18,8 +18,6 @@ export class StateSelect extends React.Component {
 	getSuggestions = (value) => {
 		const inputValue = value.trim().toLowerCase();
 		const inputLength = inputValue.length;
-
-		
 		
 		return inputLength === 0 ? [] : this.state.stateSelect.filter(obj =>
 		obj.abbreviation.toLowerCase().slice(0, inputLength) === inputValue

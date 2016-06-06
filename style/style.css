@@ -83,11 +83,33 @@ li {
 	list-style: none;
 }
 
+.state-select input {
+	display: block;
+	    width: 100%;
+	    padding: 0.5rem 0.75rem;
+	    font-size: 1rem;
+	    line-height: 1.25;
+	    color: #55595c;
+	    background-color: #fff;
+	    background-image: none;
+	    -webkit-background-clip: padding-box;
+	    background-clip: padding-box;
+	    outline:none;
+	    border: 1px solid rgba(0, 0, 0, 0.15);
+	    border-radius: 0.25rem;
+	    padding-top:5px;
+}
+
+.contact-line {
+	margin-top:10px;
+	margin-bottom: 10px;
+}
 .react-autosuggest__container input {
 	
 	display: block;
 	    width: 100%;
 	    padding: 0.5rem 0.75rem;
+	    padding-top: 16px;
 	    font-size: 1rem;
 	    line-height: 1.25;
 	    color: #55595c;

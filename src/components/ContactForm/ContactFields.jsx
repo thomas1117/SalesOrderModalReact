@@ -139,17 +139,9 @@ export class ContactFields extends React.Component {
     }
 
     
-    this.setState(nextState,function(){
-        if(that.props.additional){
-         console.log('the current state',that.state)
-         that.props.updateHostess(that.state,that.props.index);
-        }
-    });
+    this.setState(nextState);
   }
 
-  updateParty = (obj) => {
-    this.props.updateParty(obj)
-  }
   handleDash = (e) => {
     var num = e.target.value;
 
@@ -183,8 +175,6 @@ export class ContactFields extends React.Component {
       var val = this.state.phoneNumber;
       var len = this.state.phoneNumber.length;
 
-      
-      
       if(e.keyCode===8 && val.length > 0){
 
         this.setState({back:true});
@@ -194,6 +184,7 @@ export class ContactFields extends React.Component {
         this.setState({phoneNumber: val});
 
       }
+
   }
   handleFake = (e) => {
     this.setState({
@@ -251,145 +242,134 @@ export class ContactFields extends React.Component {
     return (
   
 
-      <div className='row contactContain contact-parties'>
+      <div className='contact-parties'>
         
         <div className='col-lg-12'>
 
+          <div className='col-lg-12 contact-line'>
 
-        <div className='col-lg-3 noPad col-md-3'><label>First Name</label></div>
+            <div className='col-lg-3 noPad col-md-3'><label>First Name</label></div>
+
+            <div className='col-lg-9 noPad col-md-9'>
+
+              {this.state.validFirst ? null : <label className='red'>Enter a first name</label>}
+
+              <Autosuggest id='test' suggestions={suggestions}
+                             value={this.state.value}
+                             onChange={this.onChange}
+                             onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
+                             getSuggestionValue={this.getSuggestionValue}
+                             renderSuggestion={this.renderSuggestion}
+                             isDisabled={true}
+                             inputProps={inputProps} />
+            </div>
 
             
 
-            {this.props.contacts && !this.state.disabled ? 
+          </div>
+
+            
+            <div className='col-lg-12 contact-line'>
+              
+              <div className='col-lg-3 noPad col-md-3'><label>Last Name</label></div>
 
               <div className='col-lg-9 noPad col-md-9'>
-
-                {this.state.validFirst ? <label></label> : <label className='red'>Enter a first name</label>}
-
-                 <Autosuggest id='test' suggestions={suggestions}
-                         value={this.state.value}
-                         onChange={this.onChange}
-                         onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
-                         getSuggestionValue={this.getSuggestionValue}
-                         renderSuggestion={this.renderSuggestion}
-                         isDisabled={true}
-                         inputProps={inputProps} />
-                </div>: <div className='col-lg-9 noPad col-md-9'><input className='form-control'  onChange={(e) => {this.handleFields({kind:'value', value:e.target.value})}}  value={this.state.value} disabled={this.state.disabled}/>
-
-              </div> }
-
-            <br/>
-
-            <div className='col-lg-3 noPad col-md-3'>
-              <label>Last Name</label>
-            </div>
-
-        
-
-            <div className='col-lg-9 noPad col-md-9'>
-              <input 
+                <input 
                 className='form-control' 
                 disabled={this.state.disabled} 
                 onChange={(e) => {this.handleFields({kind:'lastName', value:e.target.value})}} 
                 value={this.state.lastName}/>
               </div>
-          
             
-            <br/>
-
-            <div className='col-lg-3 noPad col-md-3'>
-              <label>Email</label>
             </div>
             
-         
+            <div className='col-lg-12 contact-line'>
 
-            <div className='col-lg-9 noPad col-md-9'>
-              {this.state.validEmail ? <label></label> : <label className='red'>Email is Incorrect</label>}
-              <input className='form-control'
+              <div className='col-lg-3 noPad col-md-3'><label>Email</label></div>
+              
+              <div className='col-lg-9 noPad col-md-9'>
+                {this.state.validEmail ? null : <label className='red'>Email is Incorrect</label>}
+                <input className='form-control'
+                  disabled={this.state.disabled} 
+                  onBlur={(e) => {this.handleErrors({kind:'email', value:e.target.value})}}
+                  onChange={(e) => {this.handleFields({kind:'email', value:e.target.value})}} 
+                  value={this.state.email}/>
+              </div>
+            
+            </div>
+           
+
+            <div className='col-lg-12 contact-line'>
+
+              <div className='col-lg-3 noPad col-md-3'><label>Address 1</label></div>
+              
+              <div className='col-lg-9 noPad col-md-9'>
+                <input className='form-control'  
                 disabled={this.state.disabled} 
-                onBlur={(e) => {this.handleErrors({kind:'email', value:e.target.value})}}
-                onChange={(e) => {this.handleFields({kind:'email', value:e.target.value})}} 
-                value={this.state.email}/>
+                onChange={(e) => {this.handleFields({kind:'address1', value:e.target.value})}} 
+                value={this.state.address1}/>
+              </div>
+            
             </div>
-          
-           
 
-            <br/>
+            <div className='col-lg-12 contact-line'>
 
-            <div className='col-lg-3 noPad col-md-3'><label>Address 1</label></div>
+              <div className='col-lg-3 noPad col-md-3'><label>Address 2</label></div>
+              
+              <div className='col-lg-9 noPad col-md-9'>
+                <input className='form-control' 
+                disabled={this.state.disabled} 
+                onChange={(e) => {this.handleFields({kind:'address2', value:e.target.value})}} 
+                value={this.state.address2}/>
+              </div>
 
-            
-
-            <div className='col-lg-9 noPad col-md-9'>
-              <input className='form-control'  
-              disabled={this.state.disabled} 
-              onChange={(e) => {this.handleFields({kind:'address1', value:e.target.value})}} 
-              value={this.state.address1}/>
             </div>
+
+            <div className='col-lg-12 contact-line'>
+
+              <div className='col-lg-3 noPad col-md-3'><label>City</label></div>
+              
+              <div className='col-lg-9 noPad col-md-9'>
+                <input className='form-control'  
+                disabled={this.state.disabled} 
+                onChange={(e) => {this.handleFields({kind:'city', value:e.target.value})}} 
+                value={this.state.city}/>
+              </div>
             
-            
-
-            <br/>
-
-            <div className='col-lg-3 noPad col-md-3'><label>Address 2</label></div>
-
-           
-
-            <div className='col-lg-9 noPad col-md-9'>
-              <input className='form-control' 
-              disabled={this.state.disabled} 
-              onChange={(e) => {this.handleFields({kind:'address2', value:e.target.value})}} 
-              value={this.state.address2}/>
-            </div>
-           
-
-            <br/>
-
-            <div className='col-lg-3 noPad col-md-3'><label>City</label></div>
-
-           
-            
-          <div className='col-lg-9 noPad col-md-9'>
-            <input className='form-control'  
-            disabled={this.state.disabled} 
-            onChange={(e) => {this.handleFields({kind:'city', value:e.target.value})}} 
-            value={this.state.city}/>
           </div>
             
-          
+          <div className='col-lg-12 contact-line'>
             
-            <br/>
-            
-            <div className='col-lg-3 noPad col-md-3'>
+              <div className='col-lg-3 noPad col-md-3'><label>State</label></div>
+              
+              <div className='col-lg-9 noPad col-md-9'>
 
-            <label>State</label>
-            </div>
-            
-            <div className='col-lg-9 noPad col-md-9'>
+                {this.state.disabled ===false ? <div className='col-lg-3 noPad col-md-3 stateSelect no-gutter'>
 
-            {this.state.disabled ===false ? <div className='col-lg-3 noPad col-md-3 stateSelect'>
+                {this.state.validState ? null : <label className='red'>State is not Valid</label>}
 
-            {this.state.validState ? <label></label> : <label className='red'>State is not Valid</label>}
+                <StateSelect 
+                  ref='stateSel' 
+                  handleFields={this.handleFields} 
+                  handleErrors={this.handleErrors} 
+                  clearData={this.clearData} 
+                  stateValue={this.state.stateVal}/>
+                </div> : 
+                
+                <div className='col-lg-3 noPad col-md-3'>
+                  <input className='form-control' 
+                    disabled={this.state.disabled} 
+                    style={{float:'left',width:'48px'}} 
+                    value={this.state.state} 
+                    onChange={(e) => {this.handleFields({kind:'state', value:e.target.value})}}/>
+                </div> }
 
-            <StateSelect 
-            ref='stateSel' 
-            handleFields={this.handleFields} 
-            handleErrors={this.handleErrors} 
-            clearData={this.clearData} 
-            stateValue={this.state.stateVal}/>
-            </div> : 
-            <div className='col-lg-3 noPad col-md-3'>
-            <input className='form-control' 
-              disabled={this.state.disabled} 
-              style={{float:'left',width:'48px'}} 
-              value={this.state.state} 
-              onChange={(e) => {this.handleFields({kind:'state', value:e.target.value})}}/>
-            </div> }
+              
               
               <div className='col-lg-3 col-md-3 text-center'><label>Zip</label></div>
                 
-              <div className='col-lg-6 noPad col-md-6'>
-                {this.state.validZip ? <label></label> : <label className='red'>Zip is invalid</label>}
+              <div className='col-lg-6 noPad col-md-6 no-gutter'>
+                {this.state.validZip ? null : <label className='red'>Zip is invalid</label>}
 
                 <input type="number" 
                 className='form-control' 
@@ -400,18 +380,19 @@ export class ContactFields extends React.Component {
 
               </div>
               
-              <br/>
-            
+              
             </div>
-
+            </div>
+            <div className='col-lg-12 contact-line'>
             <div className='col-lg-3 noPad col-md-3'><label>Phone #</label></div>
 
 
             <div className='col-lg-9 noPad col-md-9'>
-            {this.state.validPhone ? <label></label> : <label className='red'>Phone must be 10 digits</label>}
+            {this.state.validPhone ? null : <label className='red'>Phone must be 10 digits</label>}
 
             {this.renderInput()}
 
+            </div>
             </div>
 
         </div>

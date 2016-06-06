@@ -3,6 +3,7 @@ import SalesOrderModal from './SalesOrderModal/SalesOrderModal.jsx';
 import ContactModal from './ContactForm/ContactModal.jsx'
 import store from '../store';
 import {openOrder} from '../actions/salesActions';
+import List from '../../utils/resources';
 
 export default class App extends Component {
 	constructor(...props) {
@@ -45,6 +46,8 @@ export default class App extends Component {
 	    	<ContactModal
 	    		show={this.state.contactModalDisplay} 
 	    		hideContactModal={this.hideContactModal}
+	    		showSalesOrderModal={this.showSalesOrderModal}
+	    		contacts={List.List.contacts}
 	    	/>
 	    	<SalesOrderModal 
 	    	show={this.state.salesOrderDisplay} 

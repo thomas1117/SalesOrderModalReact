@@ -339,9 +339,22 @@ const data = [{
   "price": "9.05"
 }];
 
+const contacts = [{
+  first_name:'Thomas',
+  last_name:'Shannon',
+  email:'yolo@yahoo.com',
+  address_1:'address',
+  address_2:'address2',
+  city:'las vegas',
+  state:'NV',
+  zip:22233,
+  phone_number:'7023470469'
+}];
+
 const List = {
   data,
-  StateSelect
+  StateSelect,
+  contacts
 }
 module.exports = {List}
 
