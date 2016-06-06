@@ -14,9 +14,7 @@ class SalesOrderModal extends React.Component {
 	constructor(...props){
 		super(props);
 
-		this.state = {
-			split:false
-		}
+		this.state = {split:false}
 
 	}
 	
@@ -41,16 +39,15 @@ class SalesOrderModal extends React.Component {
 	}
 
 	handleSelect = (e) => {
+		
 		if(e.target.value==='split') {
-			this.setState({
-				split:true
-			});
+			
+			this.setState({split:true});
 		}
 		else {
-			this.setState({
-				split:false
-			})
+			this.setState({split:false});
 		}
+
 	}
 
 	renderSpinner = () => {

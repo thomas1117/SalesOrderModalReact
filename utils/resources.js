@@ -347,7 +347,7 @@ const contacts = [{
   address_2:'address2',
   city:'las vegas',
   state:'NV',
-  zip_code:22233,
+  zip_code:'22233',
   phone_number:'7023470469'
 }];
 

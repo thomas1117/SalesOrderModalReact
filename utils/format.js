@@ -21,8 +21,8 @@ return re.test(email);
 export function validateState(abbrev) {
 	
 	var isValid = false;
-
-	List.stateSelect.forEach(function(obj){
+	
+	List.List.StateSelect.forEach(function(obj){
 		if(abbrev===obj.abbreviation){
 			isValid=true;
 		}
@@ -36,6 +36,7 @@ export function validateZip(zip) {
 		return true;
 	}
 	if(zip.length!==5){
+		
 		return false;
 	}
 	else {

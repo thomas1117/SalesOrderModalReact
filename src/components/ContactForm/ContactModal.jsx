@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Modal} from 'react-bootstrap';
 import {ContactFields} from './ContactFields.jsx';
 import {addContact} from '../../actions/salesActions';
+import {validateForm} from '../../../utils/format';
 
 class ContactModal extends React.Component {
 	constructor(...props){
@@ -26,6 +27,17 @@ class ContactModal extends React.Component {
 			state:obj.state,
 			zip_code:obj.zip
 		};
+
+		this.setState(validateForm(obj));
+		var validObj = validateForm(obj);
+
+		
+
+		for(var key in validObj){
+		    if(validObj[key]===false){
+		        return;
+		    }
+		}
 
 		addContact(data);
 		this.props.showSalesOrderModal();
