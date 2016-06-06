@@ -339,7 +339,8 @@ const data = [{
   "price": "9.05"
 }];
 
-const contacts = [{
+const contacts = [
+{
   first_name:'Thomas',
   last_name:'Shannon',
   email:'yolo@yahoo.com',
@@ -349,7 +350,20 @@ const contacts = [{
   state:'NV',
   zip_code:'22233',
   phone_number:'7023470469'
-}];
+},
+{
+  first_name:'John',
+  last_name:'Smith',
+  email:'johnny@yahoo.com',
+  address_1:'353 s phoenix rd',
+  address_2:'2323',
+  city:'Kentucky City',
+  state:'KY',
+  zip_code:'78887',
+  phone_number:'5022333232'
+},
+
+];
 
 const List = {
   data,

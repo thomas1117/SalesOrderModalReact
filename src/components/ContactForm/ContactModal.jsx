@@ -22,7 +22,7 @@ class ContactModal extends React.Component {
 			address_1:obj.address1,
 			address_2:obj.address2,
 			email:obj.email,
-			phone_number:obj.phoneNumber,
+			phone_number:(obj.phoneNumber).replace(/[^\d]/g, ''),
 			city:obj.city,
 			state:obj.state,
 			zip_code:obj.zip
@@ -31,7 +31,7 @@ class ContactModal extends React.Component {
 		this.setState(validateForm(obj));
 		var validObj = validateForm(obj);
 
-		
+
 
 		for(var key in validObj){
 		    if(validObj[key]===false){

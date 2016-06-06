@@ -3,6 +3,12 @@ select {
 	height: 33px;
 }
 
+body {
+	overflow-x:none;
+}
+.red {
+	color:red;
+}
 .select-main {
 	margin-bottom: 20px;
 }

@@ -193,20 +193,7 @@ export class ContactFields extends React.Component {
     })
   }
   renderInput = () => {
-    if(this.state.fakeInput && !this.props.newContact){
-      return (<input 
-        className='form-control'  
-        disabled={this.state.disabled} 
-        value={phoneFormat(this.state.phoneNumber || "")} 
-        onChange={this.handleFake} />)
-    }
-    else if(this.props.disabled){
-      return (<input 
-        className='form-control'  
-        disabled={this.state.disabled} 
-        value={this.state.phoneNumber}/>)
-    }
-    else {
+
       return (<input 
         className='form-control'  
         disabled={this.state.disabled}  
@@ -214,7 +201,7 @@ export class ContactFields extends React.Component {
         onBlur={(e) => {this.handleErrors({kind:'phoneNumber', value:e.target.value})}}  
         onChange={(e) => {this.handleDash(e)}} 
         value={this.state.phoneNumber}/>)
-    }
+    
   }
   handleErrors = (obj) => {
     
