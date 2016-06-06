@@ -1,14 +1,42 @@
+select {
+	background: none;
+	height: 33px;
+}
+
+.select-main {
+	margin-bottom: 20px;
+}
 .no-gutter {
     padding:0!important;
 }
 
 .line-item-contain {
+	margin-top:15px;
 	margin-bottom: 15px;
 }
+
+
 .tfd-contain {
 	margin-bottom: 20px;
 }
 
+.line-total {
+	position: absolute;
+	right:25px;
+}
+
+.sub-total {
+	position: absolute;
+	right:42px;
+}
+
+.tfd-contain input {
+	width:70%;
+}
+
+body .split-payment {
+	width:70%;
+}
 .sales-tax {
 	width:30%;
 }
@@ -20,11 +48,28 @@
 }
 .delete-item {
 	position: absolute;
-	right:20px;
-	width:40px;
-	height:40px;
-	border-radius:50%;
+	right:0px;
+	width:20px;
+	height:20px;
+
 	background: #f7f7f7;
+	text-align: center;
+}
+.low {
+	
+	height:50px;
+}
+
+body .qty-ord {
+	width:85%;
+}
+
+body .qty-del {
+	width:85%;
+}
+.table-header span {
+	position: absolute;
+	bottom: 0;
 	text-align: center;
 }
 /*.line-item-input {

@@ -44,12 +44,12 @@ export default class LineItem extends React.Component {
 		
 		return(
 			<form>
-			<div className='col-lg-12 no-gutter line-item-contain'>
+			<div className='col-lg-12 line-item-contain'>
 				<div>	        
 		            <div className='col-lg-2 no-gutter'>
 		            	<Suggest ref='numId' getFields={this.getFields} handleFields={this.handleFields}/>
 		            </div>
-		            <div className='col-lg-4 no-gutter'>
+		            <div className='col-lg-4'>
 		            	
 		            	<DescriptionInput
 		            		ref='description' 
@@ -63,7 +63,7 @@ export default class LineItem extends React.Component {
 		            		onChange={(e) => this.handleFields({kind:'price',value:e.target.value})}
 		            		className='price form-control line-item-input'/>
 		            </div>
-		            <div className='col-lg-1 no-gutter'>
+		            <div className='col-lg-1'>
 		            	<input 
 		            		
 		            		onChange={(e) => this.handleFields({kind:'quantity_on_hand',value:e.target.value})} 
@@ -74,15 +74,15 @@ export default class LineItem extends React.Component {
 			            	
 			            	onChange={(e) => this.handleFields({kind:'quantity_ordered',value:e.target.value})} 
 			            	value={quantity_ordered}
-			            	className='quantity-ordered form-control line-item-input'/>
+			            	className='quantity-ordered form-control line-item-input qty-ord'/>
 
 		            </div>
 		            <div className='col-lg-1 no-gutter'>
 		            	<input 
 		            	onChange={(e) => this.handleFields({kind:'quantity_delivered',value:e.target.value})} 
-		            	className='quantity-delivered form-control line-item-input'/>
+		            	className='quantity-delivered form-control line-item-input qty-del'/>
 		            </div>
-		            <div className='total col-lg-2 no-gutter'>${(Number(quantity_ordered)*Number(price)).toFixed(2)}</div>
+		            <div className='total col-lg-2'><span className='line-total'>${(Number(quantity_ordered)*Number(price)).toFixed(2)}</span></div>
 
 		            <span 
 		            	className='delete-item' 

@@ -40,8 +40,11 @@ export default function(state = userInitialState, action) {
             
             return {
                 ...state,
-                itemList: [{id:Math.random()}
+                itemList: [{id:Math.random()},
                 ],
+                total:0,
+                salesTax:0,
+                additionalDiscount:0
                 
             }
 
@@ -71,7 +74,8 @@ export default function(state = userInitialState, action) {
 
             return {
                 ...state,
-                itemList: state.itemList.filter(item => item.id!==action.id)
+                itemList: state.itemList.filter(item => item.id!==action.id),
+                total:reduced(state.itemList.filter(item => item.id!==action.id))
             }
 
         case 'UPDATE_SALES_TAX':

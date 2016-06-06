@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SalesOrderModal from './SalesOrderModal/SalesOrderModal.jsx';
+import ContactModal from './ContactForm/ContactModal.jsx'
 import store from '../store';
 import {openOrder} from '../actions/salesActions';
 
@@ -8,8 +9,14 @@ export default class App extends Component {
 		super(props);
 
 		this.state = {
-			salesOrderDisplay:false
+			salesOrderDisplay:false,
+			contactModalDisplay:false,
 		}
+	}
+	showContactModal = () => {
+		this.setState({
+			contactModalDisplay:true
+		});
 	}
 	showSalesOrderModal = () => {
 		this.setState({
@@ -24,12 +31,21 @@ export default class App extends Component {
 			salesOrderDisplay:false
 		})
 	}
+	hideContactModal = () => {
+		this.setState({
+			contactModalDisplay:false
+		})
+	}
   	render() {
     return (
     	<div>
 
-	    	<button className='btn btn-primary' onClick={this.showSalesOrderModal}>New Sales Order</button>
+	    	<button className='btn btn-primary' onClick={this.showContactModal}>New Sales Order</button>
 
+	    	<ContactModal
+	    		show={this.state.contactModalDisplay} 
+	    		hideContactModal={this.hideContactModal}
+	    	/>
 	    	<SalesOrderModal 
 	    	show={this.state.salesOrderDisplay} 
 	    	hideSalesOrderModal={this.hideSalesOrderModal}

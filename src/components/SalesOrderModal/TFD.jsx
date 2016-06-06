@@ -7,8 +7,8 @@ export default class TFD extends React.Component {
 		
 		return(
 			<div className='col-lg-12 no-gutter no-gutter'>
-			<div className='col-lg-8'></div>
-			<div className='col-lg-4 no-gutter'>
+			<div className='col-lg-9'></div>
+			<div className='col-lg-3 no-gutter'>
 
 				<div className='col-lg-12 no-gutter tfd-contain'>
 
@@ -46,8 +46,8 @@ export default class TFD extends React.Component {
 				<div className='col-lg-12 no-gutter tfd-contain'>
 
 					<div className='col-lg-6 no-gutter'>Total</div>
-					<div className='col-lg-6 no-gutter total'>$
-					{(Number(this.props.total)+Number(this.props.salesTax)-Number(this.props.addDis)).toFixed(2)}
+					<div className='col-lg-6 no-gutter total'>
+					<span className='sub-total'>${(Number(this.props.total)+Number(this.props.salesTax)-Number(this.props.addDis)).toFixed(2)}</span>
 					</div>
 
 				</div>
