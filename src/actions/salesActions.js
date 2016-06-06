@@ -12,6 +12,12 @@ export function addItem(resp) {
 		newItem:resp
 	})
 }
+export function addContact(resp) {
+	store.dispatch({
+		type:'ADD_CONTACT',
+		payload:resp
+	})
+}
 export function updateItem(resp) {
 	store.dispatch({
 		type:'UPDATE_ITEM',

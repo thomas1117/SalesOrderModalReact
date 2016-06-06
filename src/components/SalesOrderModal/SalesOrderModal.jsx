@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Modal} from 'react-bootstrap';
+import ContactData from './ContactData.jsx';
 import LineItem from './LineItem.jsx';
 import TFD from './TFD.jsx';
 import store from '../../store';
@@ -67,14 +68,16 @@ class SalesOrderModal extends React.Component {
 
 				<Modal.Body>
 
+					<ContactData contact={this.props.contact}/>
+
 					<div className="table-responsive">
 					    <div className="table">
 					        <div className='col-lg-12 table-header'style={{backgroundColor:'#eee'}}>
 						        
-						            <div className='col-lg-2 no-gutter low'><span>Item #</span></div>
-						            <div className='col-lg-4 low'><span>Description</span></div>
+						            <div className='col-lg-1 no-gutter low'><span>Item #</span></div>
+						            <div className='col-lg-5 low'><span>Description</span></div>
 						            <div className='col-lg-1 low no-gutter'><span>Price</span></div>
-						            <div className='col-lg-1 no-gutter low text-center'><span>Qty on Hand</span></div>
+						            <div className='col-lg-1 no-gutter low'><span style={{width:'68px'}}>Qty on Hand</span></div>
 						            <div className='col-lg-1 no-gutter low'><span>Qty Ord</span></div>
 						            <div className='col-lg-1 no-gutter low'><span>Qty Del</span></div>
 						            <div className='col-lg-2 low'>
@@ -136,6 +139,7 @@ class SalesOrderModal extends React.Component {
 function mapStateToProps(state) {
 	
   return { list: state.salesReducer.itemList,
+  			contact:state.salesReducer.contact,
   			total:state.salesReducer.total,
   			salesTax:state.salesReducer.salesTax,
   			addDis:state.salesReducer.additionalDiscount

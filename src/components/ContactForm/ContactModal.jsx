@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Modal} from 'react-bootstrap';
 import {ContactFields} from './ContactFields.jsx';
+import {addContact} from '../../actions/salesActions';
 
 class ContactModal extends React.Component {
 	constructor(...props){
@@ -12,6 +13,21 @@ class ContactModal extends React.Component {
 
 	}
 	handleAdd = () => {
+		var obj = this.refs.contact.state;
+
+		let data = {
+			first_name:obj.value,
+			last_name:obj.lastName,
+			address_1:obj.address1,
+			address_2:obj.address2,
+			email:obj.email,
+			phone_number:obj.phoneNumber,
+			city:obj.city,
+			state:obj.state,
+			zip_code:obj.zip
+		};
+
+		addContact(data);
 		this.props.showSalesOrderModal();
 		this.props.hideContactModal();
 	}

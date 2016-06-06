@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 import Autosuggest from 'react-autosuggest';
-import {list} from '../../../utils/resources';
+import {List} from '../../../utils/resources';
 
 export class DescriptionInput extends React.Component {
   constructor() {
@@ -38,7 +38,7 @@ export class DescriptionInput extends React.Component {
    const inputValue = value.trim().toLowerCase();
    const inputLength = inputValue.length;
 
-   return inputLength === 0 ? [] : list.filter(
+   return inputLength === 0 ? [] : List.data.filter(
    		function(items){
    		
    			return items.description.slice(0,inputLength).toLowerCase()=== inputValue

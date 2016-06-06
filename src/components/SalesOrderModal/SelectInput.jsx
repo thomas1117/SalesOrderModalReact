@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 import Autosuggest from 'react-autosuggest';
-import {list} from '../../../utils/resources';
+import {List} from '../../../utils/resources';
 
 export class Suggest extends React.Component {
   constructor() {
@@ -36,7 +36,7 @@ export class Suggest extends React.Component {
  getSuggestions(value) {
    const inputValue = value.trim();
    const inputLength = inputValue.length;
-   return inputLength === 0 ? [] : list.filter(function(items){return items.item_number.slice(0,inputLength)=== inputValue})
+   return inputLength === 0 ? [] : List.data.filter(function(items){return items.item_number.slice(0,inputLength)=== inputValue})
   
  }
   onChange(event, { newValue }) {

@@ -46,10 +46,10 @@ export default class LineItem extends React.Component {
 			<form>
 			<div className='col-lg-12 line-item-contain'>
 				<div>	        
-		            <div className='col-lg-2 no-gutter'>
+		            <div className='col-lg-1 no-gutter'>
 		            	<Suggest ref='numId' getFields={this.getFields} handleFields={this.handleFields}/>
 		            </div>
-		            <div className='col-lg-4'>
+		            <div className='col-lg-5'>
 		            	
 		            	<DescriptionInput
 		            		ref='description' 

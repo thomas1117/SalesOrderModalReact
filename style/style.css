@@ -22,12 +22,12 @@ select {
 
 .line-total {
 	position: absolute;
-	right:25px;
+	    left: 40px;
 }
 
 .sub-total {
 	position: absolute;
-	right:42px;
+	    left: 0px;
 }
 
 .tfd-contain input {

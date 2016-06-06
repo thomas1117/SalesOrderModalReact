@@ -1,5 +1,6 @@
 let userInitialState = {
 	itemList:[],
+    contact:{},
     total:0,
     salesTax:0,
     additionalDiscount:0
@@ -88,6 +89,12 @@ export default function(state = userInitialState, action) {
             return {
                 ...state,
                 additionalDiscount:action.payload
+            }
+
+        case 'ADD_CONTACT':
+            return {
+                ...state,
+                contact:action.payload
             }
 
         default:
