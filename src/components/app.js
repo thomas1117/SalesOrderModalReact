@@ -40,7 +40,7 @@ export default class App extends Component {
   	render() {
     return (
     	<div>
-    		<h2>An example of a sales order modal with contact form</h2>
+    		<h2>An example of a sales order modal and contact form with validation.</h2>
 	    	<button className='btn btn-primary' onClick={this.showContactModal}>New Sales Order</button>
 
 	    	<ContactModal

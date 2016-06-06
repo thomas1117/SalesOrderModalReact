@@ -19,7 +19,8 @@ class SalesOrderModal extends React.Component {
 	}
 	
 	hideModal = () => {
-		this.props.hideSalesOrderModal()
+		this.props.hideSalesOrderModal();
+		this.setState({split:false})
 	}
 
 	renderItemList = () => {
@@ -98,28 +99,11 @@ class SalesOrderModal extends React.Component {
 						<TFD total={this.props.total} salesTax={this.props.salesTax} addDis={this.props.addDis}/>
 
 						
-						<div>
-							<div className='col-lg-9 no-gutter'></div>
-							<div className='col-lg-3 no-gutter'>
-								<select className='select-main' onChange={this.handleSelect}>
-									<option value="cash">Cash</option>
-									<option value="credit">Credit</option>
-									<option value="check">Check</option>
-									<option value="split">Split</option>
-								</select>
-							</div>
-						</div>
+						
 						
 
 
-						{this.state.split ? 
-							<div>
-								<div className='col-lg-9 no-gutter'></div>
-								<div className='col-lg-3 no-gutter'>
-								<SplitPayment total={this.props.total}/>
-								</div>
-							</div>
-							: null}
+						
 						
 						
 						</div>

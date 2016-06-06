@@ -50,7 +50,7 @@ export default class SplitPayment extends React.Component {
 		return(
 			<div>
 				<div className='col-lg-12 no-gutter tfd-contain'>
-					<div className='col-lg-6 no-gutter'>
+					<div className='col-lg-6'>
 
 						<select id='payment1' onChange={this.change}>
 							{this.state.cash === 2 ? null : <option  value="cash" disabled={this.state.cash === 2}>cash</option>}
@@ -66,7 +66,7 @@ export default class SplitPayment extends React.Component {
 				</div>
 
 				<div className='col-lg-12 no-gutter tfd-contain'>
-					<div className='col-lg-6 no-gutter'>
+					<div className='col-lg-6'>
 
 						<select id='payment2' onChange={this.change}>
 						{this.state.credit === 1 ? null : <option  value="credit" disabled={this.state.credit === 1}>credit</option>}

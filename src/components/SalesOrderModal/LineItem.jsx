@@ -29,7 +29,14 @@ export default class LineItem extends React.Component {
 	}
 	handleFields = (obj) => {
 		let nextState = {...this.state};
+		
+		if(obj.kind==='quantity_ordered'){nextState[obj.kind] = obj.value.slice(0,3)}
+
+
+		else {
 		nextState[obj.kind] = obj.value;
+		}
+		
 		
 		this.setState(nextState);
 
