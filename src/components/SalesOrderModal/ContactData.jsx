@@ -13,7 +13,7 @@ export default class ContactData extends React.Component {
 				<p>{first_name + " " + last_name}</p>
 				<p>{address_1 + " " + address_2}</p>
 				<p>{city + "," + state + " " + zip_code}</p>
-				<p>{phoneFormat(phone_number)}</p>
+				<p>{phoneFormat(phone_number||"")}</p>
 			</div>
 		)
 	}

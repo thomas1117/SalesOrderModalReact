@@ -39,7 +39,7 @@ class SalesOrderModal extends React.Component {
 	}
 
 	handleSelect = (e) => {
-		
+
 		if(e.target.value==='split') {
 			
 			this.setState({split:true});
@@ -48,6 +48,10 @@ class SalesOrderModal extends React.Component {
 			this.setState({split:false});
 		}
 
+	}
+
+	saveModal = () => {
+		
 	}
 
 	renderSpinner = () => {
@@ -60,7 +64,7 @@ class SalesOrderModal extends React.Component {
 				
 				<Modal.Header 
 					style={{backgroundColor:'#F7F7F7', border:'solid 1px #AFD3D7'}}>
-					Sales Order
+					<h4>Sales Order</h4>
 				</Modal.Header>
 
 				<Modal.Body>
@@ -69,19 +73,17 @@ class SalesOrderModal extends React.Component {
 
 					<div className="table-responsive">
 					    <div className="table">
-					        <div className='col-lg-12 table-header'style={{backgroundColor:'#eee'}}>
+					        <div className='col-lg-12 table-header no-gutter'style={{backgroundColor:'#eee'}}>
 						        
 						            <div className='col-lg-1 no-gutter low'><span>Item #</span></div>
 						            <div className='col-lg-5 low'><span>Description</span></div>
 						            <div className='col-lg-1 low no-gutter'><span>Price</span></div>
-						            <div className='col-lg-1 no-gutter low'><span style={{width:'68px'}}>Qty on Hand</span></div>
-						            <div className='col-lg-1 no-gutter low'><span>Qty Ord</span></div>
-						            <div className='col-lg-1 no-gutter low'><span>Qty Del</span></div>
-						            <div className='col-lg-2 low'>
-						            <div className='col-lg-1 low'></div>
-						            <div className='col-lg-4 low no-gutter'>
-						            <span>Total</span>
-						            </div>
+						            <div className='col-lg-1 low'><span>Qty Ord</span></div>
+						            <div className='col-lg-2 low'><span>Qty Del</span></div>
+						            <div className='col-lg-1 low'>
+						           
+						            <span className='total-header'>Total</span>
+						           
 						            </div>
 						        
 					        </div>
@@ -127,7 +129,7 @@ class SalesOrderModal extends React.Component {
 				
 				<Modal.Footer>
 					<button className='btn btn-primary' onClick={this.saveModal}>Save</button>
-					<button className='btn btn-primary' onClick={this.hideModal}>Close</button>
+					<button className='btn btn-success' onClick={this.hideModal}>Close</button>
 				</Modal.Footer>
 			</Modal>)
 	}

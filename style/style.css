@@ -6,6 +6,14 @@ select {
 body {
 	overflow-x:none;
 }
+
+input {
+	font-size: 16px;
+}
+body .form-control {
+	padding-left:6px;
+	padding-right: 6px;
+}
 .red {
 	color:red;
 }
@@ -67,16 +75,21 @@ body .split-payment {
 }
 
 body .qty-ord {
-	width:85%;
+	width:117%;
 }
 
 body .qty-del {
-	width:85%;
+	width:55%;
 }
 .table-header span {
 	position: absolute;
 	bottom: 0;
 	text-align: center;
+}
+
+.total-header {
+	position: absolute;
+	left:40px;
 }
 /*.line-item-input {
 	width:52%;
@@ -115,8 +128,7 @@ li {
 	display: block;
 	    width: 100%;
 	    padding: 0.5rem 0.75rem;
-	    padding-top: 16px;
-	    font-size: 1rem;
+	    padding-top: 7px;
 	    line-height: 1.25;
 	    color: #55595c;
 	    background-color: #fff;
@@ -162,8 +174,8 @@ li:nth-child(odd) {
 	width:400px;
 	height:100px;
 }
-.react-autosuggest__suggestion
-.react-autosuggest__suggestion--focused
-.react-autosuggest__section-container
-.react-autosuggest__section-title
-.react-autosuggest__section-suggestions-container
+
+.contact-parties label {
+	position: relative;
+	top:5px;
+}

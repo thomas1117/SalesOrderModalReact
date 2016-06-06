@@ -65,9 +65,9 @@ class ContactModal extends React.Component {
 				</Modal.Body>
 				
 				<Modal.Footer>
-					<button className='btn btn-primary' onClick={()=>this.refs.contact.clear()}>Clear</button>
+					<button className='btn btn-error' onClick={()=>this.refs.contact.clear()}>Clear</button>
 					<button className='btn btn-primary' onClick={()=>this.handleAdd()}>Add</button>
-					<button className='btn btn-primary' onClick={()=>this.props.hideContactModal()}>Close</button>
+					<button className='btn btn-success' onClick={()=>this.props.hideContactModal()}>Close</button>
 				</Modal.Footer>
 			</Modal>)
 	}
