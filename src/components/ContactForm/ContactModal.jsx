@@ -29,7 +29,7 @@ class ContactModal extends React.Component {
 					<div className='col-lg-2'></div>
 					<div className='col-lg-8'>
 
-					<ContactFields contacts={this.props.contacts}/>
+					<ContactFields ref='contact' contacts={this.props.contacts}/>
 
 					</div>
 					<div className='col-lg-2'></div>
@@ -37,6 +37,7 @@ class ContactModal extends React.Component {
 				</Modal.Body>
 				
 				<Modal.Footer>
+					<button className='btn btn-primary' onClick={()=>this.refs.contact.clear()}>Clear</button>
 					<button className='btn btn-primary' onClick={()=>this.handleAdd()}>Add</button>
 					<button className='btn btn-primary' onClick={()=>this.props.hideContactModal()}>Close</button>
 				</Modal.Footer>

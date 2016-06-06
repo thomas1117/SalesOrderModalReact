@@ -37,7 +37,7 @@ export class ContactFields extends React.Component {
 
   getSuggestionValue = (suggestion) => {
     var that = this;
-
+    this.getFieldValues(suggestion)
     this.handleFields(suggestion);
     this.setState({disabled:true});
     return suggestion.first_name; 
@@ -254,14 +254,14 @@ export class ContactFields extends React.Component {
 
               {this.state.validFirst ? null : <label className='red'>Enter a first name</label>}
 
-              <Autosuggest id='test' suggestions={suggestions}
+              {!this.state.disabled ? <Autosuggest id='test' suggestions={suggestions}
                              value={this.state.value}
                              onChange={this.onChange}
                              onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
                              getSuggestionValue={this.getSuggestionValue}
                              renderSuggestion={this.renderSuggestion}
                              isDisabled={true}
-                             inputProps={inputProps} />
+                             inputProps={inputProps} /> : <input className='form-control' value={this.state.value} disabled={true}/>}
             </div>
 
             
@@ -356,7 +356,7 @@ export class ContactFields extends React.Component {
                   stateValue={this.state.stateVal}/>
                 </div> : 
                 
-                <div className='col-lg-3 noPad col-md-3'>
+                <div className='col-lg-3 noPad col-md-3 no-gutter'>
                   <input className='form-control' 
                     disabled={this.state.disabled} 
                     style={{float:'left',width:'48px'}} 
