@@ -49,7 +49,8 @@ class ContactModal extends React.Component {
 				
 				<Modal.Header 
 					style={{backgroundColor:'#F7F7F7', border:'solid 1px #AFD3D7'}}>
-					Add Contact
+					<h4>Add Contact</h4>
+					<button className='modal-close' onClick={this.props.hideContactModal}>X</button>
 				</Modal.Header>
 
 				<Modal.Body>

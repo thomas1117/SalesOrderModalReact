@@ -14,7 +14,7 @@ class SalesOrderModal extends React.Component {
 	constructor(...props){
 		super(props);
 
-		this.state = {split:false}
+		this.state = {split:false,loading:false}
 
 	}
 	
@@ -52,11 +52,24 @@ class SalesOrderModal extends React.Component {
 	}
 
 	saveModal = () => {
-		
+		var that = this;
+		this.setState({loading:true})
+		setTimeout(function(){
+			that.setState({loading:false});
+			that.hideModal()
+		},1000)
 	}
 
-	renderSpinner = () => {
-		
+	renderSpinner = (loading) => {
+
+		if(loading===true){
+			return(
+				<div className='loader-contain'>
+				<h3>Saved</h3>
+				<div className='loader'></div>
+				</div>
+				)
+		}
 	}
 
 	render(){
@@ -66,6 +79,7 @@ class SalesOrderModal extends React.Component {
 				<Modal.Header 
 					style={{backgroundColor:'#F7F7F7', border:'solid 1px #AFD3D7'}}>
 					<h4>Sales Order</h4>
+					<button className='modal-close'onClick={this.hideModal}>X</button>
 				</Modal.Header>
 
 				<Modal.Body>
@@ -76,14 +90,14 @@ class SalesOrderModal extends React.Component {
 					    <div className="table">
 					        <div className='col-lg-12 table-header no-gutter'style={{backgroundColor:'#eee'}}>
 						        
-						            <div className='col-lg-1 no-gutter low'><span>Item #</span></div>
-						            <div className='col-lg-5 low'><span>Description</span></div>
-						            <div className='col-lg-1 low no-gutter'><span>Price</span></div>
-						            <div className='col-lg-1 low'><span>Qty Ord</span></div>
-						            <div className='col-lg-2 low'><span>Qty Del</span></div>
+						            <div className='col-lg-1 no-gutter low'><label>Item #</label></div>
+						            <div className='col-lg-5 low'><label>Description</label></div>
+						            <div className='col-lg-1 low no-gutter'><label>Price</label></div>
+						            <div className='col-lg-1 low'><label>Qty Ord</label></div>
+						            <div className='col-lg-2 low'><label>Qty Del</label></div>
 						            <div className='col-lg-1 low'>
 						           
-						            <span className='total-header'>Total</span>
+						            <label className='total-header'>Total</label>
 						           
 						            </div>
 						        
@@ -98,17 +112,9 @@ class SalesOrderModal extends React.Component {
 						</div>
 						<TFD total={this.props.total} salesTax={this.props.salesTax} addDis={this.props.addDis}/>
 
-						
-						
-						
-
-
-						
-						
-						
 						</div>
 					
-					{this.renderSpinner()}
+					{this.renderSpinner(this.state.loading)}
 				</Modal.Body>
 				
 				<Modal.Footer>
