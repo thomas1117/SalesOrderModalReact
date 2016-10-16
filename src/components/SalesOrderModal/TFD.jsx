@@ -24,11 +24,11 @@ export default class TFD extends React.Component {
 	render() {
 		
 		return(
-			<div className='col-lg-12 no-gutter no-gutter'>
-			<div className='col-lg-9'></div>
-			<div className='col-lg-3 no-gutter'>
+			<div className='col-lg-12 col-sm-12 no-gutter no-gutter'>
+			<div className='col-lg-9 col-sm-9'></div>
+			<div className='col-lg-3 col-sm-3 no-gutter'>
 
-				<div className='col-lg-12 no-gutter tfd-contain'>
+				<div className='col-lg-12 col-sm-12 no-gutter tfd-contain'>
 
 					<div className='col-lg-6'>Sub Total</div>
 					<div className='col-lg-6'>
@@ -37,7 +37,7 @@ export default class TFD extends React.Component {
 
 				</div>
 
-				<div className='col-lg-12 no-gutter tfd-contain'>
+				<div className='col-lg-12 col-sm-12 no-gutter tfd-contain'>
 
 					<div className='col-lg-6'>Sales Tax</div>
 					<div className='col-lg-6 no-gutter'>
@@ -49,7 +49,7 @@ export default class TFD extends React.Component {
 
 				</div>
 
-				<div className='col-lg-12 no-gutter tfd-contain'>
+				<div className='col-lg-12 col-sm-12 no-gutter tfd-contain'>
 
 					<div className='col-lg-6'>Add. Discount</div>
 					<div className='col-lg-6 no-gutter'>
@@ -61,7 +61,7 @@ export default class TFD extends React.Component {
 
 				</div>
 
-				<div className='col-lg-12 no-gutter tfd-contain'>
+				<div className='col-lg-12 col-sm-12 no-gutter tfd-contain'>
 
 					<div className='col-lg-6'>Total</div>
 					<div className='col-lg-6 no-gutter total'>
@@ -72,7 +72,7 @@ export default class TFD extends React.Component {
 
 				<div>
 					
-					<div className='col-lg-3'>
+					<div className='col-lg-3 col-sm-3'>
 						<select className='select-main' onChange={this.handleSelect}>
 							<option value="cash">Cash</option>
 							<option value="credit">Credit</option>
@@ -85,9 +85,9 @@ export default class TFD extends React.Component {
 				
 			</div>
 			{this.state.split ? 
-					<div className='col-lg-12 no-gutter tfd-contain'>
-						<div className='col-lg-9 no-gutter'></div>
-						<div className='col-lg-3 no-gutter'>
+					<div className='col-lg-12 col-sm-12 no-gutter tfd-contain'>
+						<div className='col-lg-9 col-sm-9 no-gutter'></div>
+						<div className='col-lg-3 col-sm-3 no-gutter'>
 						<SplitPayment total={Number(this.props.total)+Number(this.props.salesTax) - Number(this.props.addDis)}/>
 						</div>
 					</div>

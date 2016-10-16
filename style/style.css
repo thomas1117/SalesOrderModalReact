@@ -193,6 +193,10 @@ li:nth-child(odd) {
 	background: #f7f7f7;
 }
 
+li:hover {
+	cursor: pointer;
+}
+
 .react-autosuggest__suggestions-container {
 	position: absolute;
 	height:100px;

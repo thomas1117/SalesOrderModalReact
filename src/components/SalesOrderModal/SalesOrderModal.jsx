@@ -88,14 +88,14 @@ class SalesOrderModal extends React.Component {
 
 					<div className="table-responsive">
 					    <div className="table">
-					        <div className='col-lg-12 table-header no-gutter'style={{backgroundColor:'#eee'}}>
+					        <div className='col-lg-12 col-sm-12 table-header no-gutter'style={{backgroundColor:'#eee'}}>
 						        
-						            <div className='col-lg-1 no-gutter low'><label>Item #</label></div>
-						            <div className='col-lg-5 low'><label>Description</label></div>
-						            <div className='col-lg-1 low no-gutter'><label>Price</label></div>
-						            <div className='col-lg-1 low'><label>Qty Ord</label></div>
-						            <div className='col-lg-2 low'><label>Qty Del</label></div>
-						            <div className='col-lg-1 low'>
+						            <div className='col-sm-1 no-gutter low'><label>Item #</label></div>
+						            <div className='col-sm-5 low'><label>Description</label></div>
+						            <div className='col-sm-1 low no-gutter'><label>Price</label></div>
+						            <div className='col-sm-1 low'><label>Qty Ord</label></div>
+						            <div className='col-sm-2 low'><label>Qty Del</label></div>
+						            <div className='col-sm-1 low'>
 						           
 						            <label className='total-header'>Total</label>
 						           

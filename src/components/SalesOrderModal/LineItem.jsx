@@ -50,19 +50,19 @@ export default class LineItem extends React.Component {
 		
 		return(
 			<form>
-			<div className='col-lg-12 line-item-contain no-gutter'>
+			<div className='col-xs-12 line-item-contain no-gutter'>
 				<div>	        
-		            <div className='col-lg-1 no-gutter'>
+		            <div className='col-lg-1 col-sm-1 no-gutter'>
 		            	<Suggest ref='numId' getFields={this.getFields} handleFields={this.handleFields}/>
 		            </div>
-		            <div className='col-lg-5'>
+		            <div className='col-lg-5 col-sm-5'>
 		            	
 		            	<DescriptionInput
 		            		ref='description' 
 							getFields={this.getFields} 
 							handleFields={this.handleFields}/>
 		            </div>
-		            <div className='col-lg-1 no-gutter'>
+		            <div className='col-lg-1 col-sm-1 no-gutter'>
 		            	<input 
 		            		 
 		            		value={price} 
@@ -70,7 +70,7 @@ export default class LineItem extends React.Component {
 		            		className='price form-control line-item-input'/>
 		            </div>
 
-		            <div className='col-lg-1'>
+		            <div className='col-lg-1 col-sm-1'>
 		            	<input 
 			            	
 			            	onChange={(e) => this.handleFields({kind:'quantity_ordered',value:e.target.value})} 
@@ -78,12 +78,12 @@ export default class LineItem extends React.Component {
 			            	className='quantity-ordered form-control line-item-input qty-ord'/>
 
 		            </div>
-		            <div className='col-lg-2'>
+		            <div className='col-lg-2 col-sm-2'>
 		            	<input 
 		            	onChange={(e) => this.handleFields({kind:'quantity_delivered',value:e.target.value})} 
 		            	className='quantity-delivered form-control line-item-input qty-del'/>
 		            </div>
-		            <div className='total col-lg-2'><span className='line-total'>${(Number(quantity_ordered)*Number(price)).toFixed(2)}</span></div>
+		            <div className='total col-lg-2 col-sm-2'><span className='line-total'>${(Number(quantity_ordered)*Number(price)).toFixed(2)}</span></div>
 
 		            <span 
 		            	className='delete-item' 
