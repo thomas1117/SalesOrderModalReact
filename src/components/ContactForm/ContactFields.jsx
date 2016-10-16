@@ -231,9 +231,9 @@ export class ContactFields extends React.Component {
 
       <div className='contact-parties'>
         
-        <div className='col-lg-12'>
+        <div className='col-lg-12 col-md-12'>
 
-          <div className='col-lg-12 contact-line'>
+          <div className='col-lg-12 col-md-12 contact-line'>
 
             <div className='col-lg-3 noPad col-md-3'><label>First Name</label></div>
 
@@ -256,7 +256,7 @@ export class ContactFields extends React.Component {
           </div>
 
             
-            <div className='col-lg-12 contact-line'>
+            <div className='col-lg-12 col-md-12 contact-line'>
               
               <div className='col-lg-3 noPad col-md-3'><label>Last Name</label></div>
 
@@ -270,7 +270,7 @@ export class ContactFields extends React.Component {
             
             </div>
             
-            <div className='col-lg-12 contact-line'>
+            <div className='col-lg-12 col-md-12 contact-line'>
 
               <div className='col-lg-3 noPad col-md-3'><label>Email</label></div>
               
@@ -286,7 +286,7 @@ export class ContactFields extends React.Component {
             </div>
            
 
-            <div className='col-lg-12 contact-line'>
+            <div className='col-lg-12 col-md-12 contact-line'>
 
               <div className='col-lg-3 noPad col-md-3'><label>Address 1</label></div>
               
@@ -299,7 +299,7 @@ export class ContactFields extends React.Component {
             
             </div>
 
-            <div className='col-lg-12 contact-line'>
+            <div className='col-lg-12 col-md-12 contact-line'>
 
               <div className='col-lg-3 noPad col-md-3'><label>Address 2</label></div>
               
@@ -312,7 +312,7 @@ export class ContactFields extends React.Component {
 
             </div>
 
-            <div className='col-lg-12 contact-line'>
+            <div className='col-lg-12 col-md-12 contact-line'>
 
               <div className='col-lg-3 noPad col-md-3'><label>City</label></div>
               
@@ -325,7 +325,7 @@ export class ContactFields extends React.Component {
             
           </div>
             
-          <div className='col-lg-12 contact-line'>
+          <div className='col-lg-12 col-md-12 contact-line'>
             
               <div className='col-lg-3 noPad col-md-3'><label>State</label></div>
               
@@ -370,7 +370,7 @@ export class ContactFields extends React.Component {
               
             </div>
             </div>
-            <div className='col-lg-12 contact-line'>
+            <div className='col-lg-12 col-md-12 contact-line'>
             <div className='col-lg-3 noPad col-md-3'><label>Phone #</label></div>
 
 

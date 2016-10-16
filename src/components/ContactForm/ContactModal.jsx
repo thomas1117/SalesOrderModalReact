@@ -45,7 +45,7 @@ class ContactModal extends React.Component {
 	}
 	render(){
 		return(
-			<Modal bsSize='lg' show={this.props.show}>
+			<Modal bsSize='md' show={this.props.show}>
 				
 				<Modal.Header 
 					style={{backgroundColor:'#F7F7F7', border:'solid 1px #AFD3D7'}}>
@@ -55,13 +55,13 @@ class ContactModal extends React.Component {
 
 				<Modal.Body>
 					<div className='row'>
-					<div className='col-lg-2'></div>
-					<div className='col-lg-8'>
+				
+					<div className='col-lg-12'>
 
 					<ContactFields ref='contact' contacts={this.props.contacts}/>
 
 					</div>
-					<div className='col-lg-2'></div>
+					
 					</div>
 				</Modal.Body>
 				
